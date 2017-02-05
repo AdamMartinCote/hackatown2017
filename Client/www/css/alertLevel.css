@@ -1,0 +1,23 @@
+    button {
+        color: black;
+    }
+    
+    .app button.niveauFaible,
+    .app button.niveauModere,
+    .app button.niveauEleve {
+        padding: 25px;
+        color: black;
+        display: block;
+    }
+    
+    .app button.niveauFaible {
+        background-color: yellow
+    }
+    
+    .app button.niveauModere {
+        background-color: orange;
+    }
+    
+    .app button.niveauEleve {
+        background-color: red;
+    }

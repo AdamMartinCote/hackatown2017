@@ -39,18 +39,18 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
+    <link rel="stylesheet" type="text/css" href="css/alertLevel.css" />
+    <title>Application Heroes</title>
 </head>
 
 <body>
     <div class="app">
-
-        <a href="waitingForHelper.html?niveau=0">Faible</a>
-        <a href="waitingForHelper.html?niveau=1">Modéré</a>
-        <a href="waitingForHelper.html?niveau=2">
+        <button class="niveauFaible" onclick="window.location.href='waitingForHelper.html?niveau=0'">Faible</button>
+        <button class="niveauModere" onclick="window.location.href='waitingForHelper.html?niveau=1'">Modéré</button>
+        <button class="niveauEleve" onclick="window.location.href='waitingForHelper.html?niveau=2'">
             Élevé
             <span class="911">911</span>            
-        </a>
+        </button
 
     </div>
     <script type="text/javascript" src="cordova.js"></script>
