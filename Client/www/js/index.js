@@ -81,6 +81,11 @@ var app = {
             */
         }
     },
+    findNewAlert: function() {
+        console.log("envoie demande ajax");
+        // ICI findNewAlert()
+        setTimeout(app.findNewAlert, 3000);
+    },
     setupPush: function() {
         console.log('calling push init');
         var push = PushNotification.init({
