@@ -124,7 +124,7 @@ var app = {
                 var convertedJson = JSON.parse(this.responseText);
                 console.log(convertedJson);
                 if (convertedJson) {
-                    document.getElementById("rayonAidant").innerHTML = convertedJson + " M";
+                    document.getElementById("rayonAidant").innerHTML = "à " + convertedJson + " M";
                     setTimeout(app.obtainHelperDistance, 3000);
                 } else {
                     setTimeout(app.obtainHelperDistance, 3000);
