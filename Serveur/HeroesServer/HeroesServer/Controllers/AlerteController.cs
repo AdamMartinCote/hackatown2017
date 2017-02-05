@@ -42,7 +42,7 @@ namespace HeroesServer.Controllers
             
         }
 
-        [HttpPost]
+        [HttpGet]
         public Alerte FindNewAlert(float longitude,float latitude,int UID)
         {
             UserData.UpdatePositionUser(UID, longitude, latitude);
