@@ -40,52 +40,25 @@
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Heroes</title>
-
-    <script>
-
-      function scanServer(){
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            var convertedJson = JSON.parse(this.responseText);
-
-            document.getElementById("demo").innerHTML = convertedJson["test 1"];
-            if(convertedJson["test 1"] === "un resultat"){
-              document.getElementById("check").hidden = false;
-            }
-          }
-
-        };
-        xhttp.open("GET", "test_json.json", true);
-        xhttp.send();
-      }
-    </script>
-
 </head>
 
 <body>
     <div class="app">
         <h1>Heroes</h1>
-        <a href="alertBox.html">Déclenchement d'une alarme.</a>
-        <p>test</p>
-      <div>
+        <button onclick="setTimeout(app.findNewAlert, 3000);">Rechercher les alertes</button>
         <button class="mainButton" onclick="window.location.href='alertLevel.html'">Medical</button>
         <button class="mainButton" onclick="window.location.href='alertLevel.html'">Security</button>
-      </div>
-      <div>
         <br>
         <br>
         <br>
         <br>
         <br>
-        <button class="scanButton" onclick="scanServer();">scan server</button>
-        <div id="demo"></div>
-        <span id="check" hidden>check</span>
-
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <button class="settingButton" onclick="window.location.href='profileSetting.html'">Profile Setting</button>
-
-      </div>
-
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>
