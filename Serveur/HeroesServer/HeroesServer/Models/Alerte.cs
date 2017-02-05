@@ -15,6 +15,7 @@ namespace HeroesServer.Models
         public Localisation Position { get; set; }
         public Gravite Gravite { get; set; }
         public TypeAlerte Type { get; set; }
+        public bool IsAnswered { get; set; }
 
     }
 }

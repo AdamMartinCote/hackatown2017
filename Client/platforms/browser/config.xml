@@ -8,6 +8,8 @@
         PhoneGap Team
     </author>
     <content src="index.html" />
+    <access origin="*.google.com" />
+    <access origin="*.googleapis.com" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
