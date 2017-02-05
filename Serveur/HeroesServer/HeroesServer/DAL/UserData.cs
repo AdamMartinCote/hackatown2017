@@ -6,35 +6,31 @@ using System.Web;
 
 namespace HeroesServer.DAL
 {
-    public static class AlerteData
+    public class UserData
     {
-        public static List<Alerte> Get()
+        public static List<Users> Get()
         {
             return null;
         }
 
-        public static Alerte Get(int id)
-        {
-            return null;
-        }
-        public static Alerte GetByIDInitiator(int idInitiator)
+        public static User Get(int id)
         {
             return null;
         }
 
-        public static Alerte Insert(Alerte alerte)
-        {
-            return null;
-        }
-
-
-        public static Alerte Update(int id)
+        public static User Insert(User user)
         {
             return null;
         }
 
 
-        public static Alerte Delete(int id)
+        public static User Update(int id)
+        {
+            return null;
+        }
+
+
+        public static User Delete(int id)
         {
             return null;
         }

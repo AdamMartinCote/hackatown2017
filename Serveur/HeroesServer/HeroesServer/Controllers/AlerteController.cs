@@ -1,4 +1,5 @@
-﻿using HeroesServer.Models;
+﻿using HeroesServer.DAL;
+using HeroesServer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,31 +27,77 @@ namespace HeroesServer.Controllers
         }
             */
         [HttpPost]
-        public bool CreateAlert([FromBody] Alerte alerte)
+        public void CreateAlert([FromBody] Alerte alerte)
         {
-
-            return true;
+            AlerteData.Insert(alerte);
+            
         }
 
         [HttpPost]
-        public bool FindNewAlert([FromBody] Alerte alerte)
+        public Alerte FindNewAlert(float longitude,float latitude,int UID)
         {
 
-            return true;
+            return null;
         }
 
         [HttpPost]
-        public bool IsAlertAnswered([FromBody] Alerte alerte)
+        public Alerte PushNewAlert(TypeAlerte type, Gravite gravite, int UID, float longitude, float latitude)
         {
-
-            return true;
+            Alerte NewAlerte =new Alerte();
+            NewAlerte.Type = type;
+            NewAlerte.Gravite = gravite;
+            NewAlerte.IdInitiateur = UID;
+            NewAlerte.Position.Longitude = longitude;
+            NewAlerte.Position.Latitude = latitude;
+            //possibilite d entrer dans un database en soit demander a Chris
+            return null;
         }
 
         [HttpPost]
-        public bool GetHelperDistance([FromBody] Alerte alerte)
+        public bool IsAlertAnswered(int UID)
         {
+            Alerte AlerteTemp = AlerteData.GetByIDInitiator(UID);
+            return AlerteTemp.IsAnswered;
+        }
 
-            return true;
+
+        [HttpPost]
+        public float GetHelperDistance( int  UID)
+        {
+            Alerte AlerteTemp = AlerteData.GetByIDInitiator(UID);
+            Users Helper = UserData.Get(AlerteTemp.IdRepondant);
+
+            float distance = CalculDistances(AlerteTemp.Position, Helper.position);
+
+
+
+            return (float)distance;
+        }
+        public static float CalculDistances(Localisation position1,Localisation position2)
+        {
+            var R = 6371; // km
+            var dLat = ConvertDegreesToRadians(position2.Latitude - position1.Latitude);
+
+            var dLon = ConvertDegreesToRadians(position2.Longitude - position1.Longitude);
+            var lat1 = ConvertDegreesToRadians(position1.Latitude);
+            var lat2 = ConvertDegreesToRadians(position2.Latitude);
+
+            var a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
+                    Math.Sin(dLon / 2) * Math.Sin(dLon / 2) * Math.Cos(lat1) * Math.Cos(lat2);
+            var c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+            var d = R * c;
+
+
+
+            return (float)d;
+
+
+
+        }
+        public static double ConvertDegreesToRadians(double degrees)
+        {
+            double radians = (Math.PI / 180) * degrees;
+            return (radians);
         }
     }
 }
