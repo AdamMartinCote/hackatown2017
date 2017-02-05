@@ -113,3 +113,12 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+.mainButton{
+  font-size: 3rem;
+  height: 100px;
+  width: 250px;
+  text-align: center;
+  padding: 10px;
+
+}
