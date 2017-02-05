@@ -43,6 +43,8 @@ var app = {
         $.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyCpcVKyqZu51c43dYXe1DL4KoJ2HcmpZRg&sensor=true&callback=app.onMapsApiLoaded');
     },
     onMapsApiLoaded: function() {
+        var myLatLng = { lat: -25.363, lng: 131.044 };
+
         // Maps API loaded and ready to be used.
         var map = new google.maps.Map(document.getElementById('map'), {
             center: {
@@ -50,7 +52,14 @@ var app = {
                 lng: 150.644
             },
             scrollwheel: false,
-            zoom: 8
+            zoom: 8,
+            center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Hello World!'
         });
     },
     setupPush: function() {
