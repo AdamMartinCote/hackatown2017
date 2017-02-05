@@ -39,32 +39,48 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/circleProgressBar.css" />
+    <link href="css/mui/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="js/librairies/mui.min.js"></script>
     <title>Heroes</title>
 </head>
 
 <body>
-    <div class="app">
-        <h1>Heroes</h1>
-        <button onclick="setTimeout(app.findNewAlert, 3000);">Rechercher les alertes</button>
-        <button class="mainButton" onclick="window.location.href='alertLevel.html'">Medical</button>
-        <button class="mainButton" onclick="window.location.href='alertLevel.html'">Security</button>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <button class="settingButton" onclick="window.location.href='profileSetting.html'">Profile Setting</button>
+    <div class="app" style="padding-top:65px;">
+        <div id="rechercheAlerte" style="display:none;">
+            <p>En attente d'une alerte</p>
+            <div class="sk-fading-circle">
+                <div class="sk-circle1 sk-circle"></div>
+                <div class="sk-circle2 sk-circle"></div>
+                <div class="sk-circle3 sk-circle"></div>
+                <div class="sk-circle4 sk-circle"></div>
+                <div class="sk-circle5 sk-circle"></div>
+                <div class="sk-circle6 sk-circle"></div>
+                <div class="sk-circle7 sk-circle"></div>
+                <div class="sk-circle8 sk-circle"></div>
+                <div class="sk-circle9 sk-circle"></div>
+                <div class="sk-circle10 sk-circle"></div>
+                <div class="sk-circle11 sk-circle"></div>
+                <div class="sk-circle12 sk-circle"></div>
+            </div>
+        </div>
+        <button class="mainButton mui-btn mui-btn--large mui-btn--primary" onclick="window.location.href='alertLevel.html'">Alerte médicale</button>
+        <button class="mainButton mui-btn mui-btn--large mui-btn--danger" onclick="window.location.href='alertLevel.html'" style="margin-left:0;">Alerte sécurité</button>
+        <img class="logo" width="125%" src="img/logo.png" />
+        <button class="mainButton mui-btn mui-btn--large mui-btn mui-btn--accent" onclick="initializationAlert();">Rechercher alerte</button>
+
+        <button class="settingButton mui-btn mui-btn mui-btn--primary" onclick="window.location.href='profileSetting.html'">Profile Setting</button>
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
+
+        function initializationAlert() {
+            setTimeout(app.findNewAlert, 7000);
+            document.getElementById("rechercheAlerte").style.display = "block";
+        }
     </script>
 
 </body>

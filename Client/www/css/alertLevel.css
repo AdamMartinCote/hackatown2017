@@ -8,6 +8,10 @@
         padding: 25px;
         color: black;
         display: block;
+        width: 100%;
+        color: black;
+        font-size: 25px;
+        font-weight: bold;
     }
     
     .app button.niveauFaible {
