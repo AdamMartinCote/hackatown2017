@@ -39,17 +39,17 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link href="css/mui/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="js/librairies/mui.min.js"></script>
     <title>Heroes</title>
 </head>
 
 <body>
-    <div class="app">
-        <span class="alertText">ENVOYER UNE ALERTE</span>
-        <button class="mainButton" onclick="window.location.href='alertLevel.html'">Médical</button>
-        <button class="mainButton" onclick="window.location.href='alertLevel.html'">Sécurité</button>
+    <div class="app" style="padding-top:65px;">
+        <button class="mainButton mui-btn mui-btn--large mui-btn--primary" onclick="window.location.href='alertLevel.html'">Alerte médicale</button>
+        <button class="mainButton mui-btn mui-btn--large mui-btn--danger" onclick="window.location.href='alertLevel.html'" style="margin-left:0;">Alerte sécurité</button>
         <img class="logo" width="125%" src="img/logo.png" />
-        <a href="alertBox.html">Déclenchement d'une alarme.</a>
-        <button onclick="setTimeout(app.findNewAlert, 3000);">Rechercher les alertes</button>
+        <button class="mainButton mui-btn mui-btn--large mui-btn mui-btn--accent" onclick="setTimeout(app.findNewAlert, 3000);">Rechercher alerte</button>
         <br>
         <br>
         <br>
