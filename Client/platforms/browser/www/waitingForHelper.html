@@ -46,7 +46,7 @@
 <body>
     <div class="app">
         <h2 id="aidantOntRecuAlerte">LES AIDANTS <br>ONT REÇU L'ALERTE... <br>l'un d'entre eux arrivera sous peu.</h2>
-        <h2 id="aidantEnChemin" style="display:none;">Un aidant est présentement à <span id="rayonAidant">25</span>M.</h2>
+        <h2 id="aidantEnChemin" style="display:none;">Un aidant est <span id="rayonAidant">à proximité</span>.</h2>
         <div class="sk-fading-circle">
             <div class="sk-circle1 sk-circle"></div>
             <div class="sk-circle2 sk-circle"></div>
@@ -66,11 +66,10 @@
     <script type="text/javascript" src="js/waitingForHelper.js"></script>
     <script type="text/javascript">
         app.initialize();
+        initializationAlertAnswered();
 
         function initializationAlertAnswered() {
             setTimeout(app.isAlertAnswered, 3000);
-            document.getElementById("aidantEnChemin").style.display = "block";
-            document.getElementById("aidantOntRecuAlerte").style.display = "none";
         }
     </script>
 </body>

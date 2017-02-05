@@ -89,8 +89,7 @@ var app = {
     },
     isAlertAnswered: function() {
         console.log("envoie demande ajax");
-        askIsHelperAnswered();
-        setTimeout(app.isAlertAnswered, 3000);
+        app.askIsHelperAnswered();
         app.scanServer();
     },
 
@@ -102,11 +101,38 @@ var app = {
             } else if (this.readyState == 4 && this.status == 200) {
                 var convertedJson = JSON.parse(this.responseText);
                 console.log(convertedJson);
-                window.location.href = 'alertBox.html?longitude=' + convertedJson["longitude"] + '&latitude=' + convertedJson["latitude"] + '&uid=' + convertedJson["uid"];
+                if (convertedJson) {
+                    document.getElementById("aidantEnChemin").style.display = "block";
+                    document.getElementById("aidantOntRecuAlerte").style.display = "none";
+                    app.obtainHelperDistance();
+                } else {
+                    setTimeout(app.isAlertAnswered, 3000);
+                }
             }
         };
 
-        xhttp.open("GET", "http://heroes.gear.host/api/alerte/FindNewAlert?id=1", true);
+        xhttp.open("GET", "http://heroes.gear.host/api/alerte/isAlertAnswered?idInitiateur=1", true);
+        xhttp.send();
+    },
+
+    obtainHelperDistance: function() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.status == 404) {
+                console.log("aucune requête en cours");
+            } else if (this.readyState == 4 && this.status == 200) {
+                var convertedJson = JSON.parse(this.responseText);
+                console.log(convertedJson);
+                if (convertedJson) {
+                    document.getElementById("rayonAidant").innerHTML = convertedJson * 1000 + " M";
+                    setTimeout(app.obtainHelperDistance, 3000);
+                } else {
+                    setTimeout(app.obtainHelperDistance, 3000);
+                }
+            }
+        };
+
+        xhttp.open("GET", "http://heroes.gear.host/api/alerte/getHelperDistance?uid=1", true);
         xhttp.send();
     },
 
