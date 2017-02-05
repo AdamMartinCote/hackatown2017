@@ -13,6 +13,18 @@ namespace HeroesServer
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Controllers with Actions
+            // To handle routes like `/api/VTRouting/route`
+            routes.MapRoute(
+                name: "ControllerAndAction",
+                url: "api/{controller}/{action}"
+            );
+            routes.MapRoute(
+               name: "ActionApi",
+               url: "api/{controller}/{action}/{id}",
+               defaults: new { id = UrlParameter.Optional }
+           );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

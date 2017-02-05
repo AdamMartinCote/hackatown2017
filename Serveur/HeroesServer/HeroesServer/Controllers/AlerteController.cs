@@ -13,37 +13,9 @@ namespace HeroesServer.Controllers
     public class AlerteController : ApiController
     {
 
+        [ActionName("FindNewAlert")]
         [HttpGet]
-        public User GetUser(int id)
-        {
-            FindNewAlert(232.0f, 123.0f, 1);
-            User user = UserData.Get(id);
-
-            return user;
-        }
-
-        /*
-        {
-            IdInitiateur:"12312",
-            IdRepondant: null,
-            Position:{
-                        Latitude:1213.232,
-                        Longitude:32323.232,
-                        LastUpdate:2017-02-04 12:00:00
-                     }
-            Gravite: 0,
-            Type: 1
-        }
-            */
-        [HttpPost]
-        public void CreateAlert([FromBody] Alerte alerte)
-        {
-            AlerteData.Insert(alerte);
-            
-        }
-
-        [HttpGet]
-        public Alerte FindNewAlert(float longitude,float latitude,int UID)
+        public Alerte FindNewAlert(float longitude, float latitude, int UID)
         {
             UserData.UpdatePositionUser(UID, longitude, latitude);
             List<Alerte> alertes = AlerteData.GetAllAlerteEnCours();
@@ -62,42 +34,45 @@ namespace HeroesServer.Controllers
             return null;
         }
 
-        [HttpPost]
-        public Alerte AcceptAlert(int AID, int HID) //enlever le parametre en question AID?
+
+        [ActionName("PushNewAlert")]
+        [HttpGet]
+        public bool PushNewAlert(int type, int gravite, float longitude, float latitude, int idInitiateur)
         {
-            User Helper = GetUser(HID);
-            Alerte AlerteAConfirmer = FindNewAlert(Helper.Position.Longitude, Helper.Position.Latitude, HID);
-            AlerteAConfirmer.IsAnswered = true;
-            AlerteAConfirmer.IdRepondant = HID;
-            return AlerteAConfirmer;
+            Alerte alerte = new Alerte();
+            alerte.IdInitiateur = idInitiateur;
+            alerte.Gravite = (Gravite)gravite;
+            alerte.Type = (TypeAlerte)type;
+            Localisation loc = new Localisation();
+            loc.Longitude = longitude;
+            loc.Latitude = latitude;
+            alerte.Position = loc;
+            AlerteData.Insert(alerte);
+            return true;
+        }
+
+        [ActionName("AcceptAlert")]
+        [HttpGet]
+        public Alerte AcceptAlert(int idRepondant, int idInitiateur) //enlever le parametre en question AID?
+        {
+            AlerteData.Update(idRepondant, idInitiateur);
+            return new Alerte();
             //la mettre statique?
         }
 
-        [HttpPost]
-        public Alerte PushNewAlert(TypeAlerte type, Gravite gravite, int UID, float longitude, float latitude)
+        [ActionName("IsAlertAnswered")]
+        [HttpGet]
+        public bool IsAlertAnswered(int idInitiateur)
         {
-            Alerte NewAlerte =new Alerte();
-            NewAlerte.Type = type;
-            NewAlerte.Gravite = gravite;
-            NewAlerte.IdInitiateur = UID;
-            NewAlerte.Position.Longitude = longitude;
-            NewAlerte.Position.Latitude = latitude;
-            //possibilite d entrer dans un database en soit demander a Chris
-            return null;
-        }
-
-        [HttpPost]
-        public bool IsAlertAnswered(int UID)
-        {
-            Alerte AlerteTemp = AlerteData.GetByIDInitiator(UID);
+            Alerte AlerteTemp = AlerteData.GetByIDInitiateur(idInitiateur);
             return AlerteTemp.IsAnswered;
         }
 
-
-        [HttpPost]
+        [ActionName("GetHelperDistance")]
+        [HttpGet]
         public float GetHelperDistance( int  UID)
         {
-            Alerte AlerteTemp = AlerteData.GetByIDInitiator(UID);
+            Alerte AlerteTemp = AlerteData.GetByIDInitiateur(UID);
             User Helper = UserData.Get(AlerteTemp.IdRepondant);
 
             float distance = CalculDistances(AlerteTemp.Position, Helper.Position);

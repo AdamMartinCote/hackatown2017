@@ -66,20 +66,115 @@ namespace HeroesServer.DAL
         {
             return null;
         }
-        public static Alerte GetByIDInitiator(int idInitiator)
+        public static Alerte GetByIDInitiateur(int idInitiateur)
         {
-            return null;
+            Alerte alerte = new Alerte();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = "Data Source = mssql3.gear.host; Initial Catalog = heroes; Persist Security Info = True; User ID = heroes; Password = hackatown_heroes";
+                conn.Open();
+
+                // Create the command
+                SqlCommand command = new SqlCommand(@"  SELECT
+                                                         a.*
+                                                        , p.Latitude
+                                                        , p.Longitude
+                                                        , p.LastUpdate
+                                                        FROM Alerte a
+                                                        JOIN Position p
+                                                        ON p.IdAlerte = a.IdAlerte
+                                                        "+"WHERE IdInitiateur = @idInitiateur", conn);
+                // Add the parameters.
+                command.Parameters.Add(new SqlParameter("idInitiateur", idInitiateur));
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    // while there is another record present
+                    while (reader.Read())
+                    {
+                        alerte.IdAlert = int.Parse(reader[0].ToString());
+                        alerte.IdInitiateur = int.Parse(reader[1].ToString());
+                        alerte.IdRepondant = reader[2] == DBNull.Value ? 0 : int.Parse(reader[2].ToString());
+                        alerte.Gravite = (Gravite)int.Parse(reader[3].ToString());
+                        alerte.Type = (TypeAlerte)int.Parse(reader[4].ToString());
+                        alerte.IsAnswered = reader[5].ToString() == "True";
+                        Localisation loc = new Localisation();
+                        loc.Latitude = float.Parse(reader[6].ToString());
+                        loc.Longitude = float.Parse(reader[7].ToString());
+                        loc.LastUpdate = DateTime.Parse(reader[8].ToString());
+                        alerte.Position = loc;
+                    }
+                }
+            }
+            return alerte;
         }
 
         public static Alerte Insert(Alerte alerte)
         {
-            return null;
+            
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = "Data Source = mssql3.gear.host; Initial Catalog = heroes; Persist Security Info = True; User ID = heroes; Password = hackatown_heroes";
+                conn.Open();
+
+                // Create the command
+                SqlCommand command = new SqlCommand(@"  INSERT INTO [dbo].[Alerte]
+                                                       ([IdInitiateur]
+                                                       ,[IdRepondant]
+                                                       ,[Gravite]
+                                                       ,[Type]
+                                                       ,[IsAnswered])
+                                                        VALUES " +
+                                                       "(@idInit " +
+                                                       ",null " +
+                                                       ",@gravite " +
+                                                       ",@type " +
+                                                       ",0)", conn);
+                command.Parameters.Add(new SqlParameter("idInit", alerte.IdInitiateur));
+                command.Parameters.Add(new SqlParameter("gravite", alerte.Gravite));
+                command.Parameters.Add(new SqlParameter("type", alerte.Type));
+                command.ExecuteNonQuery();
+
+                command = new SqlCommand(@"  INSERT INTO [dbo].[Position]
+                                                       ([IdAlerte]
+                                                       ,[Latitude]
+                                                       ,[Longitude]
+                                                       ,[LastUpdate])
+                                                        VALUES
+                                                       ((SELECT IDENT_CURRENT('[dbo].[Alerte]'))  " +
+                                                       ",@lat"+
+                                                       ",@long " +
+                                                       @",GETDATE()
+                                                        )", conn);
+                command.Parameters.Add(new SqlParameter("lat", alerte.Position.Latitude));
+                command.Parameters.Add(new SqlParameter("long", alerte.Position.Longitude));
+                command.ExecuteNonQuery();
+
+            }
+
+            return alerte;
         }
 
 
-        public static Alerte Update(int id)
+        public static void Update(int idRepondant, int idInitiateur)
         {
-            return null;
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = "Data Source = mssql3.gear.host; Initial Catalog = heroes; Persist Security Info = True; User ID = heroes; Password = hackatown_heroes";
+                conn.Open();
+
+                // Create the command
+                SqlCommand command = new SqlCommand(@" 
+                                                        UPDATE [dbo].[Alerte]
+                                                           "+ "SET [IdRepondant] = @idRepondant "+
+                                                              ",[IsAnswered] = 1 "+
+                                                         "WHERE [IdInitiateur] = @idInitiateur ", conn);
+                command.Parameters.Add(new SqlParameter("idRepondant", idRepondant));
+                command.Parameters.Add(new SqlParameter("idInitiateur", idInitiateur));
+
+                command.ExecuteNonQuery();
+            }
+            
         }
 
 
