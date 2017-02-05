@@ -42,13 +42,19 @@
     <title>Heroes</title>
 
     <script>
+
       function scanServer(){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("demo").innerHTML = this.responseText.test1;
-            document.getElementById("check").hidden = true;
+            var convertedJson = JSON.parse(this.responseText);
+
+            document.getElementById("demo").innerHTML = convertedJson["test 1"];
+            if(convertedJson["test 1"] === "un resultat"){
+              document.getElementById("check").hidden = false;
+            }
           }
+
         };
         xhttp.open("GET", "test_json.json", true);
         xhttp.send();
@@ -60,7 +66,6 @@
 <body>
     <div class="app">
         <h1>Heroes</h1>
-<<<<<<< HEAD
         <a href="alertBox.html">Déclenchement d'une alarme.</a>
         <p>test</p>
       <div>
