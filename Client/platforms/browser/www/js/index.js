@@ -102,7 +102,7 @@ var app = {
             }
         };
 
-        xhttp.open("GET", "http://heroes.gear.host/api/alerte/FindNewAlert?id=1", true);
+        xhttp.open("GET", "http://heroes.gear.host/api/alerte/findNewAlert?latitude=45.503&longitude=-73.614&uid=1", true);
         xhttp.send();
     },
 
