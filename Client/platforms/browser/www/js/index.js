@@ -92,13 +92,11 @@ var app = {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.status == 404) {
-                <!-- aucun json correspondant sur le serveur -->
                 console.log("aucune requête en cours");
             } else if (this.readyState == 4 && this.status == 200) {
-                <!-- une alerte a été trouvée -->
                 var convertedJson = JSON.parse(this.responseText);
                 console.log(convertedJson);
-                window.location.href = 'alertBox.html?longitude=' + convertedJson["longitude"] + '&latitude=' + convertedJson["latitude"] + '&uid=' + convertedJson["uid"];
+                window.location.href = 'alertBox.html?longitude=' + convertedJson.Position.Longitude + '&latitude=' + convertedJson.Position.Latitude + '&uid=' + convertedJson.IdInitiateur;
             }
         };
 
