@@ -39,16 +39,19 @@ var app = {
 
 
         // NOTIFICATION in APP
+        /*
         navigator.notification.alert(
             "Message notification test", // message
             null, // callback
             "PUSH NOTIFICATION TEST", // title
             'Ok' // buttonName
         );
+        */
 
-
+        // Geolocalisation
         if ("geolocation" in navigator) {
             /* geolocation is available */
+            /*
             console.log("Geolocalisation possible");
 
             var node = document.createElement("p");
@@ -65,14 +68,17 @@ var app = {
                 document.getElementById("registration").appendChild(node);
 
             });
+            */
         } else {
             /* geolocation IS NOT available */
+            /*
             console.log("Geolocalisation impossible");
 
             var node = document.createElement("h5");
             var textnode = document.createTextNode("Geolocalisation impossible");
             node.appendChild(textnode);
             document.getElementById("registration").appendChild(node);
+            */
         }
     },
     setupPush: function() {
