@@ -63,10 +63,14 @@ namespace HeroesServer.Controllers
         }
 
         [HttpPost]
-        public Alerte AcceptAlert(float longitude, float latitude, int UID)
+        public Alerte AcceptAlert(int AID, int HID) //enlever le parametre en question AID?
         {
-
-            return null;
+            User Helper = GetUser(HID);
+            Alerte AlerteAConfirmer = FindNewAlert(Helper.Position.Longitude, Helper.Position.Latitude, HID);
+            AlerteAConfirmer.IsAnswered = true;
+            AlerteAConfirmer.IdRepondant = HID;
+            return AlerteAConfirmer;
+            //la mettre statique?
         }
 
         [HttpPost]
