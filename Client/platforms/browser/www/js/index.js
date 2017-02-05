@@ -85,7 +85,28 @@ var app = {
         console.log("envoie demande ajax");
         // ICI findNewAlert()
         setTimeout(app.findNewAlert, 3000);
+        app.scanServer();
     },
+
+     scanServer: function(){
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.status == 404){
+          <!-- aucun json correspondant sur le serveur -->
+          console.log("aucune requête en cours");
+        }
+        else if (this.readyState == 4 && this.status == 200) {
+          <!-- une alerte a été trouvée -->
+          var convertedJson = JSON.parse(this.responseText);
+          console.log(convertedJson);
+            window.location.href='alertBox.html?longitude='+convertedJson["longitude"]+'&latitude='+convertedJson["latitude"]+'&uid='+convertedJson["uid"];
+        }
+      };
+
+      xhttp.open("GET", "json/findNewAlert_test.json", true);
+      xhttp.send();
+    },
+
     setupPush: function() {
         console.log('calling push init');
         var push = PushNotification.init({

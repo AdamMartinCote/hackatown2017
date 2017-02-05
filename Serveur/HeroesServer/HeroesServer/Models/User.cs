@@ -8,13 +8,13 @@ namespace HeroesServer.Models
 {
     public enum NiveauCompetence { FAIBLE, MOYEN, EXPERT };
 
-    public class Users
+    public class User
     {
         public int idUser { get; set; }
-        public string userNom { get; set; }
-        public string UserPrenom { get; set; }
-        public NiveauCompetence competence { get; set; }
-        public Localisation position { get; set; }
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
+        public NiveauCompetence NiveauCompetence { get; set; }
+        public Localisation Position { get; set; }
         //a voir plus tard
         
 
