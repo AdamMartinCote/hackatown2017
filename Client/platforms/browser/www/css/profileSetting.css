@@ -114,15 +114,7 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
-.mainButton{
-  font-size: 3rem;
-  height: 120px;
-  width: 220px;
-  text-align: center;
-  padding: 10px;
-
-}
-
-.settingButton{
-  float: right;
+.profileMenu p{
+  text-align: left;
+  border: solid 2px;
 }
