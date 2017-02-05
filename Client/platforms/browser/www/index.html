@@ -42,15 +42,24 @@
     <title>Heroes</title>
 
     <script>
+
+    <!-- fonction AJAX pour scanner periodiquement le serveur pour obtenir une alerte -->
       function scanServer(){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("demo").innerHTML = this.responseText.test1;
-            document.getElementById("check").hidden = true;
+          if (this.status == 404){
+            <!-- aucun json correspondant sur le serveur -->
+            console.log("aucune requête en cours");
+          }
+          else if (this.readyState == 4 && this.status == 200) {
+            <!-- une alerte a été trouvée -->
+            var convertedJson = JSON.parse(this.responseText);
+            console.log(convertedJson);
+              window.location.href='alertBox.html?longitude='+convertedJson["longitude"]+'&latitude='+convertedJson["latitude"]+'&uid='+convertedJson["uid"];
           }
         };
-        xhttp.open("GET", "test_json.json", true);
+
+        xhttp.open("GET", "json/findNewAlert_test.json", true);
         xhttp.send();
       }
     </script>
@@ -60,7 +69,6 @@
 <body>
     <div class="app">
         <h1>Heroes</h1>
-<<<<<<< HEAD
         <a href="alertBox.html">Déclenchement d'une alarme.</a>
         <p>test</p>
       <div>
@@ -74,7 +82,7 @@
         <br>
         <br>
         <button class="scanButton" onclick="scanServer();">scan server</button>
-        <div id="demo"></div>
+        <div id="test"></div>
         <span id="check" hidden>check</span>
 
         <button class="settingButton" onclick="window.location.href='profileSetting.html'">Profile Setting</button>
