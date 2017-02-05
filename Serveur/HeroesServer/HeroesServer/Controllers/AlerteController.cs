@@ -9,9 +9,18 @@ using System.Web.Http;
 
 namespace HeroesServer.Controllers
 {
-    [Authorize]
+    
     public class AlerteController : ApiController
     {
+
+        [HttpGet]
+        public User GetUser(int id)
+        {
+            FindNewAlert(232.0f, 123.0f, 1);
+            User user = UserData.Get(id);
+
+            return user;
+        }
 
         /*
         {
@@ -33,11 +42,35 @@ namespace HeroesServer.Controllers
             
         }
 
-        [HttpPost]
+        [HttpGet]
         public Alerte FindNewAlert(float longitude,float latitude,int UID)
         {
-
+            UserData.UpdatePositionUser(UID, longitude, latitude);
+            List<Alerte> alertes = AlerteData.GetAllAlerteEnCours();
+            Localisation loc = new Localisation();
+            loc.Longitude = longitude;
+            loc.Latitude = latitude;
+            int range = 500;
+            foreach (Alerte alerte in alertes)
+            {
+                var dist = CalculDistances(alerte.Position, loc);
+                if (CalculDistances(alerte.Position, loc) < range)
+                {
+                    return alerte;
+                }
+            }
             return null;
+        }
+
+        [HttpPost]
+        public Alerte AcceptAlert(int AID, int HID) //enlever le parametre en question AID?
+        {
+            User Helper = GetUser(HID);
+            Alerte AlerteAConfirmer = FindNewAlert(Helper.Position.Longitude, Helper.Position.Latitude, HID);
+            AlerteAConfirmer.IsAnswered = true;
+            AlerteAConfirmer.IdRepondant = HID;
+            return AlerteAConfirmer;
+            //la mettre statique?
         }
 
         [HttpPost]
@@ -65,11 +98,9 @@ namespace HeroesServer.Controllers
         public float GetHelperDistance( int  UID)
         {
             Alerte AlerteTemp = AlerteData.GetByIDInitiator(UID);
-            Users Helper = UserData.Get(AlerteTemp.IdRepondant);
+            User Helper = UserData.Get(AlerteTemp.IdRepondant);
 
-            float distance = CalculDistances(AlerteTemp.Position, Helper.position);
-
-
+            float distance = CalculDistances(AlerteTemp.Position, Helper.Position);
 
             return (float)distance;
         }
@@ -87,12 +118,7 @@ namespace HeroesServer.Controllers
             var c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
             var d = R * c;
 
-
-
             return (float)d;
-
-
-
         }
         public static double ConvertDegreesToRadians(double degrees)
         {
