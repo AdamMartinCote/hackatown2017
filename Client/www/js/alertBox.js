@@ -16,9 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
-var latitude = 45.504384;
-var longitude = -73.615072;
+$.urlParam = function(name) {
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results == null) {
+        return null;
+    } else {
+        return results[1] || 0;
+    }
+}
+var latitude = Number($.urlParam("latitude"));
+var longitude = Number($.urlParam("longitude"));
 
 var app = {
     // Application Constructor
@@ -63,7 +70,7 @@ var app = {
                 lng: longitude
             },
             scrollwheel: false,
-            zoom: 8,
+            zoom: 18,
             center: myLatLng
         });
 

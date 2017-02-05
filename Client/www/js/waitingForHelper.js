@@ -106,7 +106,7 @@ var app = {
                     document.getElementById("aidantOntRecuAlerte").style.display = "none";
                     app.obtainHelperDistance();
                 } else {
-                    setTimeout(app.isAlertAnswered, 3000);
+                    setTimeout(app.isAlertAnswered, 5000);
                 }
             }
         };
@@ -124,7 +124,7 @@ var app = {
                 var convertedJson = JSON.parse(this.responseText);
                 console.log(convertedJson);
                 if (convertedJson) {
-                    document.getElementById("rayonAidant").innerHTML = convertedJson * 1000 + " M";
+                    document.getElementById("rayonAidant").innerHTML = convertedJson + " M";
                     setTimeout(app.obtainHelperDistance, 3000);
                 } else {
                     setTimeout(app.obtainHelperDistance, 3000);
