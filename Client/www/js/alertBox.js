@@ -16,10 +16,20 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+var latitude = 45.504384;
+var longitude = -73.615072;
+
 var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
+    },
+
+    returnMapPosition: function() {
+        /*return 'http://www.google.com/maps/place/'+ latitude + ',' + longitude;*/
+        console.log('http://www.google.com/maps/place/' + latitude + ',' + longitude);
+        return 'http://maps.google.com/?q=' + latitude + ',' + longitude;
     },
     // Bind Event Listeners
     //
@@ -44,13 +54,13 @@ var app = {
     },
     onMapsApiLoaded: function() {
 
-        var myLatLng = { lat: -25.363, lng: 131.044 };
+        var myLatLng = { lat: latitude, lng: longitude };
 
         // Maps API loaded and ready to be used.
         var map = new google.maps.Map(document.getElementById('map'), {
             center: {
-                lat: -34.397,
-                lng: 150.644
+                lat: latitude,
+                lng: longitude
             },
             scrollwheel: false,
             zoom: 8,

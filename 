@@ -1,0 +1,45 @@
+[33mcommit f4f6adf8339b2de4841fe1eb49701275e26f2923[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sat Feb 4 23:30:02 2017 -0500
+
+    main screen (2 buttons)
+
+[33mcommit 28eb9bfdf973b9c0193a1f81ea469888e2cb2e42[m
+Merge: ff5b238 29e38e6
+Author: Jonathan Gervais-Ranger <Jonathan Gervais-Ranger>
+Date:   Sat Feb 4 22:21:58 2017 -0500
+
+    Merge branch 'master' of https://github.com/chriscarreau/hackatown2016
+    
+    t
+    ::# the commit.
+
+[33mcommit 29e38e6ea42b5fc4e6f17a1446dd01ef45a97be0[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sat Feb 4 22:17:42 2017 -0500
+
+    enlevé test
+
+[33mcommit 579672a31e50b3ce5e42932216a7e21403473692[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sat Feb 4 22:14:40 2017 -0500
+
+    test
+
+[33mcommit ff5b2381b5ed98794c18a417aea16bd7eb09df03[m
+Author: Jonathan Gervais-Ranger <Jonathan Gervais-Ranger>
+Date:   Sat Feb 4 22:04:11 2017 -0500
+
+    First client apps.
+
+[33mcommit eb7cfdd77ec4b18e23ce8660aa3b8fd62c4ec453[m
+Author: Christophe Carreau-Lacasse <chris.carreau@hotmail.com>
+Date:   Sat Feb 4 20:58:50 2017 -0500
+
+    API MVC C#
+
+[33mcommit 8428507f76d61759cbade3ce00a0829e8e074d08[m
+Author: Christophe Carreau-Lacasse <chris.carreau@hotmail.com>
+Date:   Sat Feb 4 16:27:30 2017 -0500
+
+    Premier commit

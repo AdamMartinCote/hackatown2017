@@ -49,7 +49,12 @@
     <div class="app">
         <h1>Alerte !</h1>
 
+<<<<<<< HEAD
+
+        <button class="mui-btn mui-btn--large mui-btn--danger" onclick="redirectGM();">Intervenir</button>
+=======
         <button class="mui-btn mui-btn--large mui-btn--danger" onclick="window.location.href='http://www.google.com/maps/place/49.46800006494457,17.11514008755796'">Intervenir</button>
+>>>>>>> 639968629a51eb975212134ee042011349f03224
         <img src="img/alert.png" width="200px" />
 
         <!-- CLÉ GOOGLE MAP API : AIzaSyCkMUwHAcw2ROk5Zdr7b_verZt3Lkt2-rI -->
@@ -61,6 +66,9 @@
     <script type="text/javascript" src="js/alertBox.js"></script>
     <script type="text/javascript">
         app.initialize();
+        function redirectGM(){
+          window.location.href=app.returnMapPosition();
+        };
     </script>
 
 </body>
