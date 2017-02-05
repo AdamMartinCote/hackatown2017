@@ -1,0 +1,272 @@
+[33mcommit 65f0c89b13f2d156ff3dbf4c92ee2f6f6b542367[m
+Merge: b44a7b7 dc0fd10
+Author: Jonathan Gervais-Ranger <Jonathan Gervais-Ranger>
+Date:   Sun Feb 5 05:12:21 2017 -0500
+
+    resolve merge
+
+[33mcommit b44a7b7f1798c1ff25398c62b0f8a1a42eeaf359[m
+Author: Jonathan Gervais-Ranger <Jonathan Gervais-Ranger>
+Date:   Sun Feb 5 05:09:36 2017 -0500
+
+    Add logo and css!
+
+[33mcommit dc0fd109cb55e279dde50f52299046364a47490e[m
+Merge: 8d2f608 86b0284
+Author: Christophe Carreau-Lacasse <chris.carreau@hotmail.com>
+Date:   Sun Feb 5 05:09:27 2017 -0500
+
+    Merge branch 'master' of https://github.com/chriscarreau/hackatown2017
+
+[33mcommit 8d2f60842ce5ae82d92b85ef7b335156f7762ef4[m
+Author: Christophe Carreau-Lacasse <chris.carreau@hotmail.com>
+Date:   Sun Feb 5 05:09:21 2017 -0500
+
+    plein de shit
+
+[33mcommit 86b028475b7a7a3396b8f53a3a34b3f955949523[m
+Merge: f73e20e cc99af3
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sun Feb 5 04:23:00 2017 -0500
+
+    Merge branch 'master' of https://github.com/chriscarreau/hackatown2017
+
+[33mcommit f73e20e2f0743b89a451fdee5be8b71dd74d41a8[m
+Merge: 7abd7e5 c4bd286
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sun Feb 5 04:20:42 2017 -0500
+
+    integration main window AJAX -> alertbox
+
+[33mcommit cc99af361bde61d94d09a5dab4b381ad11efe91c[m
+Author: Jonathan Gervais-Ranger <Jonathan Gervais-Ranger>
+Date:   Sun Feb 5 04:15:49 2017 -0500
+
+    Début de l'intégration longitude et latitude dans google map.
+
+[33mcommit 7abd7e5f723a718d8600892a926317149b9a6886[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sun Feb 5 03:45:39 2017 -0500
+
+    integration ajax main page
+
+[33mcommit 593b5a034d09c0c6b90d13a4bf953e77119b6d41[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sun Feb 5 03:40:16 2017 -0500
+
+    integration ajax main page
+
+[33mcommit c4bd286d185e68412c1bea49fd71f08825d23e2d[m
+Merge: 67e1d85 a24aa7c
+Author: Jonathan Gervais-Ranger <Jonathan Gervais-Ranger>
+Date:   Sun Feb 5 03:37:45 2017 -0500
+
+    fix merge
+
+[33mcommit 67e1d856471774815909ea4e052a3bfa8f23b381[m
+Author: Jonathan Gervais-Ranger <Jonathan Gervais-Ranger>
+Date:   Sun Feb 5 03:34:57 2017 -0500
+
+    Recherche avec Timer pour requètes AJAX
+
+[33mcommit a24aa7cfd174f5119288c2fe03283f90a243c339[m
+Merge: ae6a321 43ce42e
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sun Feb 5 02:57:38 2017 -0500
+
+    Merge branch 'master' of https://github.com/chriscarreau/hackatown2017
+
+[33mcommit ae6a32189142911318c71e98b9c24480c51d9692[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sun Feb 5 02:57:28 2017 -0500
+
+    json test
+
+[33mcommit 43ce42e3882510a4204d4c0304af674398169e08[m
+Merge: dd06544 972067e
+Author: Christophe Carreau-Lacasse <chris.carreau@hotmail.com>
+Date:   Sun Feb 5 02:54:36 2017 -0500
+
+    merge
+
+[33mcommit dd065444f4b86653d98b8aa5baf5f497b207ec28[m
+Author: Christophe Carreau-Lacasse <chris.carreau@hotmail.com>
+Date:   Sun Feb 5 02:52:12 2017 -0500
+
+    Fichier de publication
+
+[33mcommit 972067e337a199cdaacea534f0e35889d8eb64e1[m
+Merge: a03caa1 f6314aa
+Author: marchounto <mghounto@gmail.com>
+Date:   Sat Feb 4 23:47:53 2017 -0800
+
+    Merge branch 'master' of https://github.com/chriscarreau/hackatown2017
+
+[33mcommit f6314aa58493c5c6da4a0230a62a41acf6d4430c[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sun Feb 5 02:46:52 2017 -0500
+
+    ajax
+
+[33mcommit a03caa1e052d4c1f35e7ecda1a601808a494e68d[m
+Author: marchounto <mghounto@gmail.com>
+Date:   Sat Feb 4 23:46:09 2017 -0800
+
+     serveurs
+
+[33mcommit 14f32941b69af7df6c96d2007787cc817729063a[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sun Feb 5 02:05:49 2017 -0500
+
+    index
+
+[33mcommit cf08ba993ea8c2e3fa81038d700c017791d090d0[m
+Merge: 5c32612 1496e3e
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sun Feb 5 02:04:21 2017 -0500
+
+    test ajax
+
+[33mcommit 5c326126b195b3571ef090c576d646f53bd5b049[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sun Feb 5 01:52:40 2017 -0500
+
+    test ajax
+
+[33mcommit 3704ec1a96fa9129670c48ed1b57bfc22eb049ab[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sun Feb 5 01:45:30 2017 -0500
+
+    test ajax request
+
+[33mcommit 1496e3e159ca2778bcccc97e2326f33578ad174d[m
+Merge: 8d23c76 715ebe7
+Author: Jonathan Gervais-Ranger <Jonathan Gervais-Ranger>
+Date:   Sun Feb 5 01:41:34 2017 -0500
+
+    resolve the conflict.
+
+[33mcommit 8d23c76793a56162f39655493620498206c8e738[m
+Author: Jonathan Gervais-Ranger <Jonathan Gervais-Ranger>
+Date:   Sun Feb 5 01:39:57 2017 -0500
+
+    Add alertBox avec google map et lien vers google map app.
+
+[33mcommit 715ebe778e5e3eb271ac6680b93f0a3deed3640b[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sun Feb 5 00:48:26 2017 -0500
+
+    esthetique
+
+[33mcommit a636d8cb0360b693a2ee3b4fab3da6bdbff3f22f[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sun Feb 5 00:36:45 2017 -0500
+
+    esthetique main window + profile setting
+
+[33mcommit 4c65d0773196f794e4bd5e2a4ac6c0697b69c9fa[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sun Feb 5 00:24:23 2017 -0500
+
+    profile setting
+
+[33mcommit 1d4fd169d3e92dc93828827f9cf53ad887af682c[m
+Merge: 64499f1 b346527
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sun Feb 5 00:03:59 2017 -0500
+
+    index.html
+
+[33mcommit 64499f169bf5932ac795c0be4b80f8f895eb81dc[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sun Feb 5 00:02:42 2017 -0500
+
+    index.html
+
+[33mcommit b346527e9e22b0a9483af8e11bcd2145e8152f4d[m
+Merge: b6916ce 33616a9
+Author: Christophe Carreau-Lacasse <chris.carreau@hotmail.com>
+Date:   Sat Feb 4 23:58:01 2017 -0500
+
+    Merge branch 'master' of https://github.com/chriscarreau/hackatown2017
+
+[33mcommit b6916ce56202e7b649a84a332894a9283a90cadb[m
+Merge: 7ec4333 27b7b23
+Author: Christophe Carreau-Lacasse <chris.carreau@hotmail.com>
+Date:   Sat Feb 4 23:57:16 2017 -0500
+
+    Merge branch 'master' of https://github.com/chriscarreau/hackatown2017
+
+[33mcommit 7ec4333d3844b756ffdbc1abfbbac10c9be1ea99[m
+Author: Christophe Carreau-Lacasse <chris.carreau@hotmail.com>
+Date:   Sat Feb 4 23:57:09 2017 -0500
+
+    Server
+
+[33mcommit 33616a97dce329433f884f3fca623879dbabfc0e[m
+Author: Jonathan Gervais-Ranger <Jonathan Gervais-Ranger>
+Date:   Sat Feb 4 23:56:57 2017 -0500
+
+    merge.
+
+[33mcommit 2b1b814bd83c6f32dc201ae25004cfb8046fb246[m
+Merge: 942f85d 27b7b23
+Author: Jonathan Gervais-Ranger <Jonathan Gervais-Ranger>
+Date:   Sat Feb 4 23:56:28 2017 -0500
+
+    Merge branch 'master' of https://github.com/chriscarreau/hackatown2017
+
+[33mcommit 942f85da6b886e426b519a5f9fc9dddca2b44fec[m
+Author: Jonathan Gervais-Ranger <Jonathan Gervais-Ranger>
+Date:   Sat Feb 4 23:56:15 2017 -0500
+
+    Add button link and css.
+
+[33mcommit 27b7b2303298f80f945ddc4ad4727acbe7670912[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sat Feb 4 23:50:34 2017 -0500
+
+    main page
+
+[33mcommit f4a55c7c4f690232d0d267367a903c2f9f33ebca[m
+Merge: f4f6adf fca092d
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sat Feb 4 23:45:51 2017 -0500
+
+    main window
+
+[33mcommit f4f6adf8339b2de4841fe1eb49701275e26f2923[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sat Feb 4 23:30:02 2017 -0500
+
+    main screen (2 buttons)
+
+[33mcommit fca092da21fc916d4cb482677b228e2a51523fc7[m
+Author: Jonathan Gervais-Ranger <Jonathan Gervais-Ranger>
+Date:   Sat Feb 4 22:58:12 2017 -0500
+
+    ajout page niveau alerter et attente.
+
+[33mcommit 28eb9bfdf973b9c0193a1f81ea469888e2cb2e42[m
+Merge: ff5b238 29e38e6
+Author: Jonathan Gervais-Ranger <Jonathan Gervais-Ranger>
+Date:   Sat Feb 4 22:21:58 2017 -0500
+
+    Merge branch 'master' of https://github.com/chriscarreau/hackatown2016
+    
+    t
+    ::# the commit.
+
+[33mcommit 29e38e6ea42b5fc4e6f17a1446dd01ef45a97be0[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sat Feb 4 22:17:42 2017 -0500
+
+    enlevé test
+
+[33mcommit 579672a31e50b3ce5e42932216a7e21403473692[m
+Author: Adam Martin-Cote <adammartincote@gmail.com>
+Date:   Sat Feb 4 22:14:40 2017 -0500
+
+    test
+
+[33mcommit ff5b2381b5ed98794c18a417aea16bd7eb09df0
