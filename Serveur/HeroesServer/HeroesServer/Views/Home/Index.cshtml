@@ -21,4 +21,30 @@
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
     </div>
+    <button id="btnTest">CLIC MOI</button>
 </div>
+<script>
+    window.onload = function () {
+        $('#btnTest').click(function () {
+            $.ajax({
+
+                url: 'http://localhost:50661/api/alerte/findnewalert',
+                type: 'POST',
+                data: {
+                    'longitude': 120,
+                    'latitude': 232,
+                    'UID': 1,
+                },
+                dataType: 'json',
+                success: function (data) {
+                    console.log('succès');
+                    console.log(data);
+                },
+                error: function (request, error) {
+                    console.log('Échec');
+                    console.log(JSON.stringify(request));
+                }
+            });
+        });
+    }    
+</script>
