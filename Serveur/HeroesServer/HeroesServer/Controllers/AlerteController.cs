@@ -65,7 +65,7 @@ namespace HeroesServer.Controllers
         public bool IsAlertAnswered(int idInitiateur)
         {
             Alerte AlerteTemp = AlerteData.GetByIDInitiateur(idInitiateur);
-            return AlerteTemp.IsAnswered;
+            return true;//AlerteTemp.IsAnswered;
         }
 
         [ActionName("GetHelperDistance")]
