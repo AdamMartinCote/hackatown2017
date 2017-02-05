@@ -38,22 +38,25 @@
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="/css/googleMapAPI/demos.css">
+    <link rel="stylesheet" href="/css/alertBox.css">
     <title>Heroes</title>
 </head>
 
 <body>
     <div class="app">
-        <h1>Heroes</h1>
-        <a href="alertBox.html">Déclenchement d'une alarme.</a>
-        <div>
-            <button class="mainButton" onclick="window.location.href='alertLevel.html'">Medical</button>
-            <button class="mainButton" onclick="window.location.href='alertLevel.html'">Security</button>
-        </div>
-    </div>
+        <h1>Alerte !</h1>
+        <img src="img/alert.png" width="50%" />
 
+        <!-- CLÉ GOOGLE MAP API : AIzaSyCkMUwHAcw2ROk5Zdr7b_verZt3Lkt2-rI -->
+        <div id="map"></div>
+
+        <button onclick="window.location.href='http://www.google.com/maps/place/49.46800006494457,17.11514008755796'">Intervenir</button>
+
+    </div>
+    <script type="text/javascript" src="js/librairies/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/alertBox.js"></script>
     <script type="text/javascript">
         app.initialize();
     </script>
