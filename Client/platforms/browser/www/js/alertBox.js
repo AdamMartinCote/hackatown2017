@@ -43,6 +43,7 @@ var app = {
         $.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyCpcVKyqZu51c43dYXe1DL4KoJ2HcmpZRg&sensor=true&callback=app.onMapsApiLoaded');
     },
     onMapsApiLoaded: function() {
+
         var myLatLng = { lat: -25.363, lng: 131.044 };
 
         // Maps API loaded and ready to be used.
